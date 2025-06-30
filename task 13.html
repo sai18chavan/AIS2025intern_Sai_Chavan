@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Virat Kohli Career Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      color: #222;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 60px;
+      color: #1c1c1c;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    figure {
+      background: rgb(244, 247, 247);
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    figure:hover {
+      transform: scale(1.23);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    figcaption {
+      margin-top: 8px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fade 0.3s;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #fff;
+    }
+
+    @keyframes fade {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 32px;
+      color: white;
+      text-decoration: none;
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Virat Kohli's Cricket Journey</h1>
+
+<div class="gallery">
+  <figure>
+    <img src="U-19 World Cup Champion (2008) .2.jpg" onclick="openLightbox(this.src)">
+    <figcaption>U-19 World Cup Champion (2008)</figcaption>
+  </figure>
+  <figure>
+    <img src="International Debut (2008).2.webp" onclick="openLightbox(this.src)">
+    <figcaption>International Debut (2008)</figcaption>
+  </figure>
+  <figure>
+    <img src="World Cup Win (2011).jpg" onclick="openLightbox(this.src)">
+    <figcaption>2011 World Cup Winner</figcaption>
+  </figure>
+  <figure>
+    <img src="Fastest to 8000, 9000, 10000 runs.2.jpg" onclick="openLightbox(this.src)">
+    <figcaption>Fastest to 8000, 9000, 10000 runs</figcaption>
+  </figure>
+  <figure>
+    <img src="Test Captaincy Era (2014–2022).22.jpg" onclick="openLightbox(this.src)">
+    <figcaption>Legendary Test Captain (2014–22)</figcaption>
+  </figure>
+  <figure>
+    <img src="71st Century Comeback (2022).2222.jpg" onclick="openLightbox(this.src)">
+    <figcaption>71st Century Comeback (2022)</figcaption>
+  </figure>
+  <figure>
+    <img src="Star of ODI World Cup 2023.2222.webp" onclick="openLightbox(this.src)">
+    <figcaption>Star of ODI World Cup 2023</figcaption>
+  </figure>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <a href="#" class="close-btn">&times;</a>
+  <img id="lightbox-img" src="">
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById("lightbox-img").src = src;
+    document.getElementById("lightbox").style.display = "flex";
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
+

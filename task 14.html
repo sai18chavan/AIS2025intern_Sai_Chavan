@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Match Stadium Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    header, section, form {
+      max-width: 700px;
+      margin: auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    h1 {
+      margin-top: 10px;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .gallery {
+      display: flex;
+      gap: 15px;
+      margin: 30px auto;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .gallery img {
+      width: 220px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header and Stadium Image -->
+  <header>
+    <h1>🏏 Register to Watch the Match in Stadium</h1>
+    <p>Fill out the form below to secure your spot!</p>
+  </header>
+
+  <!-- Image Gallery -->
+  <section class="gallery" aria-label="Match Image Gallery">
+    <img src="Batsman hitting the ball.webp" alt="Batsman hitting the ball">
+    <img src="Crowd celebrating a match win.jpg" alt="Crowd celebrating a match win">
+    <img src="Night view of stadium lights during match.webp" alt="Night view of stadium lights during match">
+  </section>
+
+  <!-- Accessible Registration Form -->
+  <form aria-label="Match Registration Form" onsubmit="return validateForm()">
+    <label for="fullname">Full Name:</label>
+    <input type="text" id="fullname" name="fullname" required>
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="mobile">Mobile Number:</label>
+    <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required placeholder="Enter 10-digit number">
+
+    <label for="match">Select Match:</label>
+    <select id="match" name="match" required>
+      <option value="">-- Select a Match --</option>
+      <option value="ind-vs-aus">India VS Australia</option>
+      <option value="ind-vs-eng">India VS England</option>
+      <option value="ind-vs-sa">India VS South Africa</option>
+      <option value="ind-vs-sa">India VS pakistan</option>
+      <option value="ind-vs-sa">India VS new zealand</option>
+    </select>
+
+    <label for="comments">Additional Notes (Optional):</label>
+    <textarea id="comments" name="comments" rows="4" placeholder="Any special requests or notes..."></textarea>
+
+    <button type="submit">Register Now</button>
+  </form>
+
+  <!-- JavaScript for Basic Form Test -->
+  <script>
+    function validateForm() {
+      const name = document.getElementById("fullname").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const mobile = document.getElementById("mobile").value.trim();
+
+      if (name === "" || email === "" || mobile.length !== 10) {
+        alert("Please fill all required fields correctly.");
+        return false;
+      }
+      alert("Registration successful!");
+      return true;
+    }
+  </script>
+
+</body>
+</html>

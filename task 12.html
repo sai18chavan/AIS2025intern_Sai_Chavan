@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple To-Do List</title>
+</head>
+<body>
+
+  <h2>To-Do List</h2>
+
+  <input type="text" id="taskInput" placeholder="Enter task">
+  <button onclick="addTask()">Add</button>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    const taskList = document.getElementById("taskList");
+    const taskInput = document.getElementById("taskInput");
+
+    // Load tasks
+    window.onload = () => {
+      const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      tasks.forEach(task => addTaskToDOM(task));
+    };
+
+    function addTask() {
+      const task = taskInput.value.trim();
+      if (task === "") return;
+
+      addTaskToDOM(task);
+      saveTask(task);
+      taskInput.value = "";
+    }
+
+    function addTaskToDOM(task) {
+      const li = document.createElement("li");
+      li.textContent = task;
+
+      const delBtn = document.createElement("button");
+      delBtn.textContent = "Delete";
+      delBtn.onclick = () => {
+        li.remove();
+        removeTask(task);
+      };
+
+      li.appendChild(delBtn);
+      taskList.appendChild(li);
+    }
+
+    function saveTask(task) {
+      const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      tasks.push(task);
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+    function removeTask(task) {
+      let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      tasks = tasks.filter(t => t !== task);
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+  </script>
+
+</body>
+</html>
