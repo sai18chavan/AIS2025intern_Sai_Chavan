@@ -1,0 +1,53 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f4f8;
+  margin: 0;
+  padding: 40px;
+}
+
+/* Profile Card */
+.profile-card {
+  position: relative;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  padding: 20px;
+  margin: 30px auto;
+  width: 250px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Profile Picture */
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #1bdb22;
+  margin-bottom: 10px;
+}
+
+/* Status badge (absolute) */
+.status {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #4caf50;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 20px;
+}
+
+/* Fixed contact button */
+.fixed-contact {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #0077cc;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
