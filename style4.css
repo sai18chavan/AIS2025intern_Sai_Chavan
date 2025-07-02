@@ -1,0 +1,44 @@
+body {
+  background: linear-gradient(to right, #f8f8f8, #e0f7fa);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 50px;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+
+      
+}
+
+.gallery img {
+  width: 300px;
+  height: 200px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease;
+}
+.gallery figcaption{
+  background-color: #e0f7fa;
+  font-style: bolt;
+  font-size: 14px;
+  padding: 8px;
+  color: black;
+  text-align: center;
+
+}
+
+.gallery img:hover {
+  transform: scale(1.1) rotateZ(2deg);
+  filter: brightness(1.1) saturate(1.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
