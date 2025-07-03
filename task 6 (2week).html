@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Handling Example</title>
+</head>
+<body>
+
+<h2 id="myHeading">Hover over this text!</h2>
+<button id="changeButton">Click Me!</button>
+
+<script>
+  // Selecting the heading and button
+  const heading = document.getElementById('myHeading');
+  const button = document.getElementById('changeButton');
+
+  // Mouseover event on heading
+  heading.addEventListener('mouseover', function() {
+    heading.style.color = 'blue';
+    heading.textContent = 'Do your duty selflessly without attachment to results';
+  });
+
+  // Mouseout event on heading
+  heading.addEventListener('mouseout', function() {
+    heading.style.color = 'black';
+    heading.textContent = 'MSG For You';
+  });
+
+  // Click event on button
+  button.addEventListener('click', function() {
+    document.body.style.backgroundColor = 'lightyellow';
+    alert('Background color changed!');
+  });
+</script>
+</body>
+</html>

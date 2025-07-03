@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Motivational Quote Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #7a1e7d, #905cd4);
+      text-align: center;
+      padding: 60px;
+      color: #333;
+    }
+
+    #quote-box {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      margin: auto;
+      font-size: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    #quote-box:hover {
+      transform: scale(1.03);
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 18px;
+      background: #ff7e5f;
+      color: rgb(11, 9, 11);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #b6a9a9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Get Inspired </h1>
+  <div id="quote-box">
+    Click the button to get a motivational quote!
+  </div>
+  <button onclick="showQuote()">New Quote</button>
+
+  <script>
+    const quotes = [
+      "Believe you can and you're halfway there.",
+      "Push yourself, because no one else is going to do it for you.",
+      "Dream big and dare to fail.",
+      "Success doesn’t just find you. You have to go out and get it.",
+      "Great things never come from comfort zones.",
+      "Your only limit is your mind.",
+      "Don’t stop until you’re proud."
+    ];
+
+    function showQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      document.getElementById("quote-box").innerText = quotes[randomIndex];
+    }
+  </script>
+
+</body>
+</html>
+
