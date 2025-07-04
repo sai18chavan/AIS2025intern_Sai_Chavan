@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Example</title>
+    <style>
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <span id="nameError" class="error"></span><br>
+
+         <label for="number">Number:</label>
+        <input type="text" id="number" name="number"><br><br>
+        <span id="numberError" class="error"></span><br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br><br>
+        <span id="emailError" class="error"></span><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            let isValid = true;
+
+            // Clear previous error messages
+            document.getElementById('nameError').innerText = '';
+            document.getElementById('emailError').innerText = '';
+
+            // Get input values
+            let name = document.getElementById('name').value.trim();
+            let email = document.getElementById('email').value.trim();
+            let number=document.getElementById( 'number').value.trim();
+
+            // Validate name
+            if (name === '') {
+                document.getElementById('nameError').innerText = 'Name is required.';
+                isValid = false;
+            }
+
+             // Validate email
+            if (email === '') {
+                document.getElementById('emailError').innerText = 'Email is required.';
+                isValid = false;
+            } else if (!email.includes('@') || !email.includes('.')) {
+                document.getElementById('emailError').innerText = 'Enter a valid email.';
+                isValid = false;
+            }
+            // Validate Number
+            if (number=== '') {
+                document.getElementById('numberError').innerText = 'Number is required.';
+                isValid = false;
+            } else if (!number.includes('@') || !number.includes('.')) {
+                document.getElementById('numberError').innerText = 'Enter a valid number.';
+                isValid = false;
+            }
+             
+            
+
+            // If all inputs are valid, submit the form (here we just show an alert)
+            if (isValid) {
+                alert('Form submitted successfully!');
+                // You can submit the form here if needed: this.submit();
+            }
+        });
+    </script>
+
+</body>
+</html>
