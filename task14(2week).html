@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Toggle</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --button-bg: #000000;
+            --button-text: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+        h1{
+            background-color:slateblue;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AIS solutions pvt.ltd.</h1>
+        <p>AIS Solutions Pvt. Ltd. has generally positive employee reviews, with a mix of experiences.
+             Some employees report a good work environment with opportunities for skill development and positive work-life balance,
+             while others cite issues with management, work culture, and lack of advancement. </p>
+        <button id="toggleButton">Change Theme</button>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('toggleButton');
+        let darkMode = false;
+
+        toggleButton.addEventListener('click', () => {
+            if (!darkMode) {
+                document.documentElement.style.setProperty('--bg-color', '#333333');
+                document.documentElement.style.setProperty('--text-color', '#ffffff');
+                document.documentElement.style.setProperty('--button-bg', '#ffffff');
+                document.documentElement.style.setProperty('--button-text', '#333333');
+                document.documentElement.style.setProperty('--bg-color', '437057');
+                darkMode = true;
+            } else {
+                document.documentElement.style.setProperty('--bg-color', '#ffffff');
+                document.documentElement.style.setProperty('--text-color', '#000000');
+                document.documentElement.style.setProperty('--button-bg', '#000000');
+                document.documentElement.style.setProperty('--button-text', '#ffffff');
+                
+                darkMode = false;
+            }
+        });
+    </script>
+</body>
+</html>
+

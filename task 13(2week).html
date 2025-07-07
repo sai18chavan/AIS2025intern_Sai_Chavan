@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INDIAN FORCES</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    figure {
+      cursor: pointer;
+      margin: 0;
+    }
+
+    figure img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+
+    figure:hover img {
+      transform: scale(1.05);
+    }
+
+    figcaption {
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    /* Lightbox Styles */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 8px;
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gallery">
+    <figure>
+      <img src="https://www.hindustantimes.com/ht-img/img/2025/03/11/1600x900/The-official-said-admit-cards-for-the-shortlisted-_1736099694112_1741697015593.jpg" alt="Image 1" data-large="https://www.hindustantimes.com/ht-img/img/2025/03/11/1600x900/The-official-said-admit-cards-for-the-shortlisted-_1736099694112_1741697015593.jpg">
+      <figcaption>ARMY</figcaption>
+    </figure>
+    <figure>
+      <img src="https://images.careerindia.com/img/2025/01/navys-tableau-r-day-parade-jpg-1737544027174_1737544027333-1200x675.jpg" alt="Image 2" data-large="https://images.careerindia.com/img/2025/01/navys-tableau-r-day-parade-jpg-1737544027174_1737544027333-1200x675.jpg">
+      <figcaption>NAVY</figcaption>
+    </figure>
+    <figure>
+      <img src="https://media.licdn.com/dms/image/v2/D4D12AQERyXSdhtrWQQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1657188081910?e=2147483647&v=beta&t=CO1TUXdYK1V2T_qFLS0HX7A572ghvscANNTHoM7Cass" alt="Image 3" data-large="https://media.licdn.com/dms/image/v2/D4D12AQERyXSdhtrWQQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1657188081910?e=2147483647&v=beta&t=CO1TUXdYK1V2T_qFLS0HX7A572ghvscANNTHoM7Cass">
+      <figcaption>AIR FORCE</figcaption>
+    </figure>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <img id="lightboxImage" src="" alt="Lightbox Image">
+  </div>
+
+  <script>
+    const galleryImages = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const closeBtn = document.getElementById('closeBtn');
+
+    galleryImages.forEach(image => {
+      image.addEventListener('click', () => {
+        const largeSrc = image.getAttribute('data-large');
+        lightboxImage.src = largeSrc;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    // Optional: Close lightbox on outside click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
